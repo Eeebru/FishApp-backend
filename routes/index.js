@@ -14,8 +14,8 @@ router.get('/', async (req, res, next)=> {
 
 router.post('/', async function (req, res, next) {
   const query = {
-    text: 'INSERT INTO fishes (name, type) VALUES($1, $2) RETURNING *',
-    values: [req.body.name, req.body.type],
+    text: 'INSERT INTO fishes (name, type, image_url, description) VALUES($1, $2, $3, $4) RETURNING *',
+    values: [req.body.name, req.body.type, req.body.image_url, req.body.description],
   };
   
   try {

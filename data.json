@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "name": " Zebra Archerfish",
+      "type": "Toxotes blythii",
+      "image_url": "https://upload.wikimedia.org/wikipedia/common",
+      "description": "Toxotes blythii, the clouded archerfish or zebra archerfish, is a perciform fish of genus Toxotes. It is found in rivers"
+    }
+  ],
+  "required": ["name", "type", "image_url", "description"],
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The name schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [" Zebra Archerfish"]
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "The type schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": ["Toxotes blythii"]
+    },
+    "image_url": {
+      "$id": "#/properties/image_url",
+      "type": "string",
+      "title": "The image_url schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": ["https://upload.wikimedia.org/wikipedia/common"],
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^(https?|http?)://"
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "type": "string",
+      "title": "The description schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "Toxotes blythii, the clouded archerfish or zebra archerfish, is a perciform fish of genus Toxotes. It is found in rivers"
+      ]
+    }
+  }
+}

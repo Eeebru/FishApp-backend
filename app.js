@@ -15,6 +15,16 @@ app.get('/', (req, res)=> {
   res.send({message: 'Please start at /fishes'})
 });
 
+app.use((error, req, res, next)=> {
+  let key = 'error';
+  if(Array.isArray(error)) {
+    key = 'errors';
+  }
+  return res
+    .status(error[0].status || 500)
+    .json({ [key]: error.map((err) => err.message) });
+})
+
 app.use((req, res, next) => {
   let errr =  new Error('Not Found!!');
   errr.status = 404

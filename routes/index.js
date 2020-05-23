@@ -30,8 +30,6 @@ router.post("/", async function (req, res, next) {
     if (!data.valid) {
       return next(
         data.errors.map((err) => {
-          console.log(err);
-
           return err;
         })
       );
